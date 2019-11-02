@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:24:13 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/01 20:27:15 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:11:40 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	fillit_swap_left(int cur, char tetrimino[26][5][5]);
 char	**new_map(int size);
 void	print_res(char **map);
 int		check_insert(char **map, char tetrimino[5][5], int x, int y);
-int		insert_tetremino(char **map, char tetrimino[5][5]);
+int		insert_tetremino(char **map, char tetrimino[5][5], int i, int j);
 int		delete_tetra(char **map, int cur);
 int		search_tetra(char **map, char cur);
 void	free_map(char **map, int size);

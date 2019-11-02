@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:53:02 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/01 21:24:15 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:42:42 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,8 @@ void	copy_map(char **map, char **res)
 	}
 }
 
-/*char	**check_min(char **map)
-{
-	static char	**res;
-	int			len;
-
-	if (!res)
-		res = new_map(ft_strlen(*map) + 1);
-	len = without_points(map, ft_strlen(*map));
-	if (ft_strlen(*map) < ft_strlen(*res))
-	{
-		free_map(res, ft_strlen(*res));
-		res = new_map(len);
-		copy_map(map, res);
-	}
-	return (res);
-}*/
-
 char	**check_min(char **map)
 {
-	//static char	**res;
 	int			len;
 
 	if (!RESULT_GLOBAL)
@@ -93,7 +75,8 @@ char	**check_min(char **map)
 char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins)
 {
 	int		k;
-	char	**res;
+	int	i;
+	int	j;
 
 	if (ins == nbr)
 		return (check_min(map));
@@ -102,16 +85,34 @@ char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins)
 	{
 		if (!search_tetra(map, k + 'A'))
 		{
-			if (insert_tetremino(map, tetrimino[k]))
-				return (NULL);
-			if (!res)
-				res = new_map(ft_strlen(*map));
-			recur(map, tetrimino, nbr, ins + 1);
-			delete_tetra(map, k);
+			j = 0;
+			while (j < ft_strlen(*map))
+			{
+				i = 0;
+				while (i < ft_strlen(*map))
+				{
+					if (insert_tetremino(map, tetrimino[k], i, j))
+						return (NULL);
+					recur(map, tetrimino, nbr, ins + 1);
+					delete_tetra(map, k);
+					i++;
+				}
+				j++;
+			}
 		}
 		k++;
 	}
 	return (NULL);
+}
+
+int		size_map(int nbr)
+{
+	int	size;
+
+	size = 2;
+	while (size * size < 4 * nbr)
+		size++;
+	return (size);
 }
 
 void	solve(char tetrimino[26][5][5], int nbr)
@@ -121,7 +122,7 @@ void	solve(char tetrimino[26][5][5], int nbr)
 	int		size;
 	int		k;
 
-	size = 2;
+	size = size_map(nbr);
 	map = new_map(size);
 	result = recur(map, tetrimino, nbr, 0);
 	while (!result)

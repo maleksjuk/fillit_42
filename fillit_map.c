@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 17:42:52 by chbeast           #+#    #+#             */
-/*   Updated: 2019/11/01 20:11:37 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/02 21:22:21 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,15 @@ int		check_insert(char **map, char tetrimino[5][5], int x, int y)
 	return (0);
 }
 
-int		insert_tetremino(char **map, char tetrimino[5][5])
+int		insert_tetremino(char **map, char tetrimino[5][5], int x, int y)
 {
 	int	i;
 	int	j;
-	int	x;
-	int	y;
+	//int	x;
+	//int	y;
 
-	x = 0;
-	y = 0;
+	//x = 0;
+	//y = 0;
 	while (check_insert(map, tetrimino, x, y))
 	{
 		x++;
