@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 17:42:52 by chbeast           #+#    #+#             */
-/*   Updated: 2019/11/02 21:22:21 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/02 23:10:26 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,20 @@ int		check_insert(char **map, char tetrimino[5][5], int x, int y)
 		while (tetrimino[j][i])
 		{
 			if (y + j >= ft_strlen(*map))
-				return (1);
+				return (0);
 			if (x + i >= ft_strlen(*map))
 				if (tetrimino[j][i] == '.')
 					break ;
 				else
-					return (1);
+					return (0);
 			else if (tetrimino[j][i] != '.' && map[y + j][x + i] != '.')
-				return (1);
+				return (0);
 			i++;
 		}
 		j++;
 		i = 0;
 	}
-	return (0);
+	return (1);
 }
 
 int		insert_tetremino(char **map, char tetrimino[5][5], int x, int y)
@@ -89,11 +89,16 @@ int		insert_tetremino(char **map, char tetrimino[5][5], int x, int y)
 	int	j;
 	//int	x;
 	//int	y;
+	//int	k;
 
 	//x = 0;
 	//y = 0;
-	while (check_insert(map, tetrimino, x, y))
+	//k = 0;
+//	while (y != ft_strlen(*map))
+/*	while (check_insert(map, tetrimino, x, y))
 	{
+	//	if (check_insert(map, tetrimino, x, y))
+	//		k++;
 		x++;
 		if (x == ft_strlen(*map))
 		{
@@ -101,8 +106,10 @@ int		insert_tetremino(char **map, char tetrimino[5][5], int x, int y)
 			x = 0;
 		}
 		if (y == ft_strlen(*map))
-			return (1);
-	}
+			return (0);
+	}*/
+	if (!check_insert(map, tetrimino, x, y))
+		return (0);
 	i = 0;
 	j = 0;
 	while (tetrimino[j][i])
@@ -116,7 +123,7 @@ int		insert_tetremino(char **map, char tetrimino[5][5], int x, int y)
 		i = 0;
 		j++;
 	}
-	return (0);
+	return (1);
 }
 
 int		delete_tetra(char **map, int cur)
