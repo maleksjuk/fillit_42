@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:53:02 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/02 21:42:42 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 13:48:44 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,33 +74,25 @@ char	**check_min(char **map)
 
 char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins)
 {
-	int		k;
 	int	i;
 	int	j;
 
 	if (ins == nbr)
 		return (check_min(map));
-	k = 0;
-	while (k < nbr)
+	j = 0;
+	while (map[j])
 	{
-		if (!search_tetra(map, k + 'A'))
+		i = 0;
+		while (map[j][i])
 		{
-			j = 0;
-			while (j < ft_strlen(*map))
+			if (insert_tetremino(map, tetrimino[ins], i, j))
 			{
-				i = 0;
-				while (i < ft_strlen(*map))
-				{
-					if (insert_tetremino(map, tetrimino[k], i, j))
-						return (NULL);
-					recur(map, tetrimino, nbr, ins + 1);
-					delete_tetra(map, k);
-					i++;
-				}
-				j++;
+				recur(map, tetrimino, nbr, ins + 1);
+				delete_tetra(map, ins);
 			}
+			i++;
 		}
-		k++;
+		j++;
 	}
 	return (NULL);
 }
