@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:24:13 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 17:20:49 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 20:21:07 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**g_result;
 int		fillit_usage(void);
 void	tetra_null(char tetrimino[26][5][5]);
 int		input_check(char *line);
-int		finish_input(int cur, int gnl, int num_str);
+int		finish_input(int cur, int gnl, int num_str, char *line);
 int		fillit_input(int fd, char tetrimino[26][5][5]);
 int		sv_func(int cur, char tetrimino[26][5][5], int i, int j);
 int		tetra_check(int cur, char tetrimino[26][5][5]);
@@ -46,5 +46,7 @@ char	**check_min(char **map);
 char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins);
 int		size_map(int nbr);
 void	solve(char tetrimino[26][5][5], int nbr);
+void	clear_finish(char **map1, char **map2, char **map3);
+int		free_line(char *line);
 
 #endif

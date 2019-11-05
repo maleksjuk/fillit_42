@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:50:50 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 17:22:14 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 18:16:49 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	fillit_swap_top(int cur, char tetrimino[26][5][5])
 int		without_points_right(int cur, char tetrimino[26][5][5], int len)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (i < 4)
@@ -89,7 +88,6 @@ int		without_points_right(int cur, char tetrimino[26][5][5], int len)
 int		without_points_bottom(int cur, char tetrimino[26][5][5], int len)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (i < 4)

@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:31:17 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 17:20:13 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 20:00:04 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,12 @@ int		main(int ac, char **av)
 	tetra_null(tetrimino);
 	fd = open(av[1], O_RDONLY);
 	nbr = fillit_input(fd, tetrimino);
+	close(fd);
 	if (nbr == 0)
 	{
-		close(fd);
 		write(1, "error\n", 6);
 		return (0);
 	}
 	solve(tetrimino, nbr);
-	close(fd);
 	return (0);
 }
