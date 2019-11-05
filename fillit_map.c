@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 17:42:52 by chbeast           #+#    #+#             */
-/*   Updated: 2019/11/05 16:56:31 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:24:35 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	print_res(char **map)
 	}
 	while (map[i])
 	{
-		printf("|>   %s\n", map[i]);
+		ft_putendl(map[i]);
 		i++;
 	}
 }

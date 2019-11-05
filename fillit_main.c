@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   fillit_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:31:17 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 16:48:13 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:20:13 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,13 @@ int		main(int ac, char **av)
 {
 	int		fd;
 	char	tetrimino[26][5][5];
-	int		fd_save;
 	int		nbr;
 
 	if (ac != 2)
 		return (fillit_usage());
 	tetra_null(tetrimino);
 	fd = open(av[1], O_RDONLY);
-	fd_save = fd;
-	nbr = fillit_input(fd_save, tetrimino);
+	nbr = fillit_input(fd, tetrimino);
 	if (nbr == 0)
 	{
 		close(fd);
@@ -65,6 +63,5 @@ int		main(int ac, char **av)
 	}
 	solve(tetrimino, nbr);
 	close(fd);
-	printf("success\n\n");
 	return (0);
 }

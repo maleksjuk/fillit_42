@@ -6,12 +6,11 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:00:32 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 16:33:29 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:22:27 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "get_next_line.h"
 
 int	input_check(char *line)
 {

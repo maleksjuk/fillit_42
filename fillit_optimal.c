@@ -6,12 +6,11 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:50:50 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/01 14:24:05 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:22:14 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "get_next_line.h"
 
 void	fillit_swap_left(int cur, char tetrimino[26][5][5])
 {

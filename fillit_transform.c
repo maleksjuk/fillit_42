@@ -6,12 +6,11 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:13:11 by obanshee          #+#    #+#             */
-/*   Updated: 2019/10/23 20:48:16 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 17:22:21 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "get_next_line.h"
 
 int	sv_func(int cur, char tetrimino[26][5][5], int i, int j)
 {
