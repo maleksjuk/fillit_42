@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:00:32 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 20:35:46 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 21:58:01 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	input_check(char *line)
 
 int	finish_input(int cur, int gnl, int num_str, char *line)
 {
-	if (*line)
+	if (line && *line)
 		free(line);
-	if (gnl < 0)
+	if (gnl < 0 || num_str == 0)
 		return (0);
 	if (gnl == 0 && num_str != 4)
 		return (0);
