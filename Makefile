@@ -6,11 +6,11 @@
 #    By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/14 20:51:10 by obanshee          #+#    #+#              #
-#    Updated: 2019/10/31 18:03:40 by obanshee         ###   ########.fr        #
+#    Updated: 2019/11/05 16:58:07 by obanshee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = start
+NAME = fillit
 
 SRC = fillit.c fillit_input.c fillit_transform.c fillit_optimal.c \
 	get_next_line.c fillit_map.c re_fillit.c

@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:31:17 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/01 20:10:54 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 16:48:13 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <stdio.h>
 #include "get_next_line.h"
 
-// ОШИБКИ
-int	fillit_usage(void)
+int		fillit_usage(void)
 {
 	write(1, "usage: ./fillit [file_input]\n\tuse 1 file to input\n", 50);
 	return (0);
@@ -45,8 +44,7 @@ void	tetra_null(char tetrimino[26][5][5])
 	}
 }
 
-// ОСНОВНАЯ ПРОГРАММА
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	int		fd;
 	char	tetrimino[26][5][5];

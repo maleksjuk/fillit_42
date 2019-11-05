@@ -6,13 +6,11 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:53:02 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 13:48:44 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 16:56:35 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-char	**RESULT_GLOBAL;
 
 int		without_points(char **map, int len)
 {
@@ -38,38 +36,20 @@ int		without_points(char **map, int len)
 	return (without_points(map, len - 1));
 }
 
-void	copy_map(char **map, char **res)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			res[i][j] = map[i][j];
-			j++;
-		}
-		i++;
-	}
-}
-
 char	**check_min(char **map)
 {
-	int			len;
+	int	len;
 
-	if (!RESULT_GLOBAL)
-		RESULT_GLOBAL = new_map(ft_strlen(*map) + 1);
+	if (!g_result)
+		g_result = new_map(ft_strlen(*map) + 1);
 	len = without_points(map, ft_strlen(*map));
-	if (ft_strlen(*map) < ft_strlen(*RESULT_GLOBAL))
+	if (ft_strlen(*map) < ft_strlen(*g_result))
 	{
-		free_map(RESULT_GLOBAL, ft_strlen(*RESULT_GLOBAL));
-		RESULT_GLOBAL = new_map(len);
-		copy_map(map, RESULT_GLOBAL);
+		free_map(g_result, ft_strlen(*g_result));
+		g_result = new_map(len);
+		copy_map(map, g_result);
 	}
-	return (RESULT_GLOBAL);
+	return (g_result);
 }
 
 char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins)
@@ -97,16 +77,6 @@ char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins)
 	return (NULL);
 }
 
-int		size_map(int nbr)
-{
-	int	size;
-
-	size = 2;
-	while (size * size < 4 * nbr)
-		size++;
-	return (size);
-}
-
 void	solve(char tetrimino[26][5][5], int nbr)
 {
 	char	**map;
@@ -123,8 +93,8 @@ void	solve(char tetrimino[26][5][5], int nbr)
 		size++;
 		map = new_map(size);
 		result = recur(map, tetrimino, nbr, 0);
-		if (RESULT_GLOBAL)
+		if (g_result)
 			break ;
 	}
-	print_res(RESULT_GLOBAL);
+	print_res(g_result);
 }
