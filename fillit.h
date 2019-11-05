@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:24:13 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/02 21:11:40 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/05 14:10:29 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		tetra_check(int cur, char tetrimino[26][5][5]);
 int		transform(int cur, char *line, char tetrimino[26][5][5], int num);
 // fillit_input.c
 int		input_check(char *line);
-int		finish_input(int cur, int gnl);
+int		finish_input(int cur, int gnl, int num_str);
 int 	fillit_input(int fd, char tetrimino[26][5][5]);
 // fillit_optimal.c
 void	fillit_optimal(int cur, char tetrimino[26][5][5]);
