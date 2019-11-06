@@ -6,13 +6,13 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 19:05:28 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 21:15:53 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 13:34:14 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 32
+# define BUFF_SIZE 5
 # define MAX_FD 10240
 
 # include <stdlib.h>

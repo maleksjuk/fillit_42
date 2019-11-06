@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:00:32 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 21:58:01 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 14:13:22 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	input_check(char *line)
 				return (1);
 		i++;
 	}
+	if (line[4] != '\n')
+		return (1);
+	line[4] = '\0';
 	if (ft_strlen(line) != 4)
 		return (1);
 	return (0);
@@ -70,7 +73,7 @@ int	fillit_input(int fd, char tetrimino[26][5][5])
 		{
 			num_str = 0;
 			cur++;
-			if ((cur == 'Z' + 1) || !ft_strequ(line, ""))
+			if ((cur == 'Z' + 1) || !ft_strequ(line, "\n"))
 				return (free_line(line));
 			gnl = get_next_line(fd, &line);
 		}

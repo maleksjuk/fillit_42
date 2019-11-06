@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obanshee <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 18:35:26 by obanshee          #+#    #+#             */
-/*   Updated: 2019/10/07 15:35:24 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 14:08:19 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*memory_line(char **str, int fd, char **line)
 	if (ft_strchr(str[fd], '\n'))
 	{
 		len = (int)(ft_strchr(str[fd], '\n') - str[fd]);
-		*line = ft_strsub(str[fd], 0, len);
+		*line = ft_strsub(str[fd], 0, len + 1);
 		if (*(str[fd] + len + 1) != '\0')
 		{
 			trans = ft_strdup(str[fd] + len + 1);
