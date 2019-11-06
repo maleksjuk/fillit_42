@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 16:24:13 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 21:11:22 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 22:06:13 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft.h"
-# include "get_next_line.h"
 
 char	**g_result;
 int		fillit_usage(void);
@@ -46,7 +45,8 @@ char	**check_min(char **map);
 char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins);
 int		size_map(int nbr);
 void	solve(char tetrimino[26][5][5], int nbr);
-void	clear_finish(char **map1, char **map2, char **map3);
+void	clear_finish(char **map1, char **map2);
 int		free_line(char *line);
+int		reader(int fd, char *line);
 
 #endif

@@ -6,13 +6,11 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:31:17 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 21:41:16 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 20:12:04 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
-#include "get_next_line.h"
 
 int		fillit_usage(void)
 {

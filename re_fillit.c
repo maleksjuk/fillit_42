@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 16:53:02 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/05 20:13:23 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 21:54:40 by obanshee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,34 +76,30 @@ char	**recur(char **map, char tetrimino[26][5][5], int nbr, int ins)
 	return (NULL);
 }
 
-void	clear_finish(char **map1, char **map2, char **map3)
+void	clear_finish(char **map1, char **map2)
 {
 	if (map1)
 		free_map(map1, ft_strlen(*map1));
 	if (map2)
 		free_map(map2, ft_strlen(*map2));
-	if (map3)
-		free_map(map3, ft_strlen(*map3));
 }
 
 void	solve(char tetrimino[26][5][5], int nbr)
 {
 	char	**map;
-	char	**result;
 	int		size;
 
-	size = size_map(nbr);
+	size = size_map(nbr) - 1;
 	map = new_map(size);
-	result = recur(map, tetrimino, nbr, 0);
-	while (!result)
+	while (1)
 	{
 		free_map(map, size);
 		size++;
 		map = new_map(size);
-		result = recur(map, tetrimino, nbr, 0);
+		recur(map, tetrimino, nbr, 0);
 		if (g_result)
 			break ;
 	}
 	print_res(g_result);
-	clear_finish(g_result, map, result);
+	clear_finish(g_result, map);
 }

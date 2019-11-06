@@ -6,7 +6,7 @@
 /*   By: obanshee <obanshee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:00:32 by obanshee          #+#    #+#             */
-/*   Updated: 2019/11/06 14:13:22 by obanshee         ###   ########.fr       */
+/*   Updated: 2019/11/06 22:37:58 by chbeast          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int	input_check(char *line)
 
 int	finish_input(int cur, int gnl, int num_str, char *line)
 {
-	if (line && *line)
-		free(line);
+	free_line(line);
 	if (gnl < 0 || num_str == 0)
 		return (0);
 	if (gnl == 0 && num_str != 4)
@@ -47,36 +46,57 @@ int	finish_input(int cur, int gnl, int num_str, char *line)
 
 int	free_line(char *line)
 {
-	if (*line)
+	if (line && *line)
 		free(line);
+	return (0);
+}
+
+int	reader(int fd, char *line)
+{
+	char	bufer[2];
+	int		ret;
+	int		i;
+
+	i = 0;
+	ret = read(fd, bufer, 1);
+	while (ret > 0)
+	{
+		line[i] = bufer[0];
+		i++;
+		if (bufer[0] == '\n')
+			return (1);
+		ret = read(fd, bufer, 1);
+	}
+	if (ret < 0)
+		return (-1);
 	return (0);
 }
 
 int	fillit_input(int fd, char tetrimino[26][5][5])
 {
-	int		gnl;
+	int		ret;
 	char	*line;
 	char	cur;
 	int		num_str;
 
 	cur = 'A';
-	gnl = get_next_line(fd, &line);
+	line = ft_strnew(4);
 	num_str = 0;
-	while (gnl > 0)
+	ret = reader(fd, line);
+	while (ret > 0)
 	{
 		if (input_check(line) || transform(cur - 'A', line, tetrimino, num_str))
 			return (free_line(line));
-		free(line);
-		gnl = get_next_line(fd, &line);
+		ret = reader(fd, line);
 		num_str++;
-		if (num_str == 4 && gnl > 0)
+		if (ret > 0 && num_str == 4)
 		{
 			num_str = 0;
 			cur++;
-			if ((cur == 'Z' + 1) || !ft_strequ(line, "\n"))
+			if (cur > 'Z' || line[0] != '\n')
 				return (free_line(line));
-			gnl = get_next_line(fd, &line);
+			ret = reader(fd, line);
 		}
 	}
-	return (finish_input(cur - 'A', gnl, num_str, line));
+	return (finish_input(cur - 'A', ret, num_str, line));
 }
